@@ -1,0 +1,34 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+test = "test"
+script = "script"
+solc_version = "0.8.28"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+# Arc targets the Osaka EVM baseline (docs.arc.io/arc/references/evm-differences).
+# "prague" is the newest baseline this solc/foundry pair emits reliably and is
+# forward-compatible with Osaka for the opcodes these contracts use.
+evm_version = "prague"
+bytecode_hash = "none"
+ffi = false
+
+[profile.default.fuzz]
+runs = 512
+max_test_rejects = 100000
+
+[profile.ci.fuzz]
+runs = 5000
+
+[rpc_endpoints]
+arc_mainnet = "${ARC_RPC_URL}"
+
+[etherscan]
+arc_mainnet = { key = "${ARC_EXPLORER_API_KEY}", url = "${ARC_EXPLORER_API_URL}", chain = 5042 }
+
+[fmt]
+line_length = 100
+tab_width = 4
+bracket_spacing = false

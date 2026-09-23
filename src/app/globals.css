@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Light theme. Restrained neutrals with one brand accent - this is financial
+   * infrastructure, so colour carries meaning rather than decoration.
+   */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 20% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 20% 9%;
+
+    /* Primary is near-black rather than a brand colour: buttons stay quiet. */
+    --primary: 224 22% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 96%;
+    --secondary-foreground: 224 20% 14%;
+
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 9% 44%;
+
+    --accent: 220 16% 96%;
+    --accent-foreground: 224 20% 14%;
+
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 91%;
+    --input: 220 14% 89%;
+    --ring: 224 22% 11%;
+
+    /* Status palette. */
+    --success: 158 72% 30%;
+    --success-foreground: 0 0% 100%;
+    --success-subtle: 152 60% 96%;
+
+    --warning: 32 88% 40%;
+    --warning-foreground: 0 0% 100%;
+    --warning-subtle: 40 92% 95%;
+
+    --info: 214 84% 44%;
+    --info-foreground: 0 0% 100%;
+    --info-subtle: 214 92% 96%;
+
+    /* Brand accent: a restrained teal, used for the mark and data emphasis. */
+    --brand: 182 62% 28%;
+    --brand-foreground: 0 0% 100%;
+    --brand-subtle: 182 48% 95%;
+
+    --shadow-color: 224 30% 20%;
+    --radius: 0.625rem;
+  }
+
+  /*
+   * Dark theme. Deep blue-grey surfaces rather than pure black, so borders and
+   * elevation stay legible.
+   */
+  .dark {
+    --background: 224 24% 7%;
+    --foreground: 220 16% 96%;
+
+    --card: 224 22% 10%;
+    --card-foreground: 220 16% 96%;
+
+    --popover: 224 22% 11%;
+    --popover-foreground: 220 16% 96%;
+
+    --primary: 220 16% 96%;
+    --primary-foreground: 224 24% 9%;
+
+    --secondary: 223 18% 16%;
+    --secondary-foreground: 220 16% 96%;
+
+    --muted: 223 18% 15%;
+    --muted-foreground: 220 11% 64%;
+
+    --accent: 223 18% 17%;
+    --accent-foreground: 220 16% 96%;
+
+    --destructive: 0 68% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 223 16% 19%;
+    --input: 223 16% 22%;
+    --ring: 220 16% 80%;
+
+    --success: 156 62% 46%;
+    --success-foreground: 224 24% 8%;
+    --success-subtle: 158 48% 13%;
+
+    --warning: 36 92% 58%;
+    --warning-foreground: 224 24% 8%;
+    --warning-subtle: 33 60% 14%;
+
+    --info: 212 92% 64%;
+    --info-foreground: 224 24% 8%;
+    --info-subtle: 214 60% 15%;
+
+    --brand: 178 62% 48%;
+    --brand-foreground: 224 24% 8%;
+    --brand-subtle: 182 48% 13%;
+
+    --shadow-color: 224 60% 2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      'cv02' 1,
+      'cv03' 1,
+      'cv04' 1;
+  }
+
+  /*
+   * Financial figures must line up in columns and must not jitter as they
+   * update, so every number in the product is tabular.
+   */
+  .tabular,
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  ::selection {
+    @apply bg-brand/20;
+  }
+
+  /* Visible, consistent focus rings for keyboard users. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* The small uppercase labels used throughout the data-dense surfaces. */
+  .label-caps {
+    @apply text-2xs font-medium uppercase tracking-label text-muted-foreground;
+  }
+
+  /* Hairline separator that reads correctly in both themes. */
+  .hairline {
+    @apply border-border/70;
+  }
+
+  .skeleton {
+    @apply relative overflow-hidden rounded-md bg-muted;
+  }
+
+  .skeleton::after {
+    @apply absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent;
+    content: '';
+  }
+}
+
+@layer utilities {
+  /* Subtle grid used behind the landing hero. Not a gradient wash. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+}

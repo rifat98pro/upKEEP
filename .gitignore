@@ -1,0 +1,21 @@
+node_modules/
+.next/
+out/
+build/
+# Every env file is secret by default. .env.example is the only exception, and
+# it holds placeholders only. A deployer key lives in .env.local - one missing
+# pattern here is how a private key reaches a public repo.
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+.upkeep/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/lib/
+.DS_Store
+.env.local
+# The master logo is committed; generated icons are derived from it.
+
