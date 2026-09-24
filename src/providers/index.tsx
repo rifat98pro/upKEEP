@@ -35,7 +35,10 @@ export function Providers({
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          // Dark is upKEEP's own look, keyed to the logo's navy, so it is the
+          // default rather than whatever the operating system happens to be
+          // set to. Light remains available from Settings.
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

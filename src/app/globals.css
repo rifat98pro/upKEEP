@@ -60,55 +60,64 @@
   }
 
   /*
-   * Dark theme. Deep blue-grey surfaces rather than pure black, so borders and
-   * elevation stay legible.
+   * Dark theme, keyed to Arc's own deep navy.
+   *
+   * Sampled from the Arc mark: hsl(213 52% 12%) in the corners, lifting to
+   * roughly hsl(211 42% 30%) where the backdrop glows behind the arch. It is a
+   * deep slate navy - saturated enough to read as blue rather than grey, but
+   * nowhere near full chroma. Pushing saturation higher turns the whole app
+   * electric and makes long reading unpleasant.
+   *
+   * Saturation tapers outward from the background: deepest behind everything,
+   * calmer on cards, borders and inputs, so raised surfaces separate cleanly
+   * instead of every layer competing at the same intensity.
    */
   .dark {
-    --background: 224 24% 7%;
-    --foreground: 220 16% 96%;
+    --background: 213 52% 10%;
+    --foreground: 210 32% 96%;
 
-    --card: 224 22% 10%;
-    --card-foreground: 220 16% 96%;
+    --card: 213 44% 14%;
+    --card-foreground: 210 32% 96%;
 
-    --popover: 224 22% 11%;
-    --popover-foreground: 220 16% 96%;
+    --popover: 213 42% 16%;
+    --popover-foreground: 210 32% 96%;
 
-    --primary: 220 16% 96%;
-    --primary-foreground: 224 24% 9%;
+    --primary: 210 32% 96%;
+    --primary-foreground: 213 52% 10%;
 
-    --secondary: 223 18% 16%;
-    --secondary-foreground: 220 16% 96%;
+    --secondary: 212 34% 20%;
+    --secondary-foreground: 210 32% 96%;
 
-    --muted: 223 18% 15%;
-    --muted-foreground: 220 11% 64%;
+    --muted: 212 32% 19%;
+    --muted-foreground: 210 22% 68%;
 
-    --accent: 223 18% 17%;
-    --accent-foreground: 220 16% 96%;
+    --accent: 212 34% 22%;
+    --accent-foreground: 210 32% 96%;
 
     --destructive: 0 68% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 223 16% 19%;
-    --input: 223 16% 22%;
-    --ring: 220 16% 80%;
+    --border: 212 28% 25%;
+    --input: 212 28% 28%;
+    --ring: 210 35% 80%;
 
     --success: 156 62% 46%;
-    --success-foreground: 224 24% 8%;
-    --success-subtle: 158 48% 13%;
+    --success-foreground: 213 52% 10%;
+    --success-subtle: 160 45% 13%;
 
     --warning: 36 92% 58%;
-    --warning-foreground: 224 24% 8%;
-    --warning-subtle: 33 60% 14%;
+    --warning-foreground: 213 52% 10%;
+    --warning-subtle: 33 58% 15%;
 
     --info: 212 92% 64%;
-    --info-foreground: 224 24% 8%;
-    --info-subtle: 214 60% 15%;
+    --info-foreground: 213 52% 10%;
+    --info-subtle: 212 45% 20%;
 
     --brand: 178 62% 48%;
-    --brand-foreground: 224 24% 8%;
+    --brand-foreground: 213 52% 10%;
     --brand-subtle: 182 48% 13%;
 
-    --shadow-color: 224 60% 2%;
+    --shadow-color: 213 60% 3%;
   }
 }
 
