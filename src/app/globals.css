@@ -62,62 +62,63 @@
   /*
    * Dark theme, keyed to Arc's own deep navy.
    *
-   * Sampled from the Arc mark: hsl(213 52% 12%) in the corners, lifting to
-   * roughly hsl(211 42% 30%) where the backdrop glows behind the arch. It is a
-   * deep slate navy - saturated enough to read as blue rather than grey, but
-   * nowhere near full chroma. Pushing saturation higher turns the whole app
-   * electric and makes long reading unpleasant.
+   * --background is sampled directly from the corners of assets/logo-mark.png:
+   * rgb(1,11,48), i.e. hsl(227 96% 10%). That exact match matters. The logo
+   * ships with its own navy backdrop baked in, so any page colour that differs
+   * leaves a visible square frame around the mark - and because the two were
+   * equally dark, that frame read as a burnt edge rather than an obvious box.
+   * Matching the page to the artwork makes the tile edge disappear.
    *
-   * Saturation tapers outward from the background: deepest behind everything,
-   * calmer on cards, borders and inputs, so raised surfaces separate cleanly
-   * instead of every layer competing at the same intensity.
+   * Saturation then tapers outward: full chroma behind everything, calmer on
+   * cards, borders and inputs, so raised surfaces separate cleanly instead of
+   * every layer competing at the same intensity.
    */
   .dark {
-    --background: 213 52% 10%;
-    --foreground: 210 32% 96%;
+    --background: 227 96% 10%;
+    --foreground: 213 34% 96%;
 
-    --card: 213 44% 14%;
-    --card-foreground: 210 32% 96%;
+    --card: 226 58% 14%;
+    --card-foreground: 213 34% 96%;
 
-    --popover: 213 42% 16%;
-    --popover-foreground: 210 32% 96%;
+    --popover: 226 54% 16%;
+    --popover-foreground: 213 34% 96%;
 
-    --primary: 210 32% 96%;
-    --primary-foreground: 213 52% 10%;
+    --primary: 213 34% 96%;
+    --primary-foreground: 227 96% 10%;
 
-    --secondary: 212 34% 20%;
-    --secondary-foreground: 210 32% 96%;
+    --secondary: 225 44% 20%;
+    --secondary-foreground: 213 34% 96%;
 
-    --muted: 212 32% 19%;
-    --muted-foreground: 210 22% 68%;
+    --muted: 225 40% 19%;
+    --muted-foreground: 216 26% 70%;
 
-    --accent: 212 34% 22%;
-    --accent-foreground: 210 32% 96%;
+    --accent: 225 44% 22%;
+    --accent-foreground: 213 34% 96%;
 
     --destructive: 0 68% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 212 28% 25%;
-    --input: 212 28% 28%;
-    --ring: 210 35% 80%;
+    --border: 225 36% 25%;
+    --input: 225 36% 28%;
+    --ring: 213 36% 80%;
 
     --success: 156 62% 46%;
-    --success-foreground: 213 52% 10%;
+    --success-foreground: 227 96% 10%;
     --success-subtle: 160 45% 13%;
 
     --warning: 36 92% 58%;
-    --warning-foreground: 213 52% 10%;
+    --warning-foreground: 227 96% 10%;
     --warning-subtle: 33 58% 15%;
 
     --info: 212 92% 64%;
-    --info-foreground: 213 52% 10%;
-    --info-subtle: 212 45% 20%;
+    --info-foreground: 227 96% 10%;
+    --info-subtle: 218 55% 22%;
 
     --brand: 178 62% 48%;
-    --brand-foreground: 213 52% 10%;
+    --brand-foreground: 227 96% 10%;
     --brand-subtle: 182 48% 13%;
 
-    --shadow-color: 213 60% 3%;
+    --shadow-color: 227 90% 3%;
   }
 }
 

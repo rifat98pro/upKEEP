@@ -48,7 +48,7 @@ function LandingHeader() {
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <UpkeepMark className="h-6" />
+          <UpkeepMark className="size-6" />
           <span className="font-semibold tracking-tight">upKEEP</span>
         </Link>
 
@@ -304,7 +304,7 @@ function EngineDiagram() {
     <div className="space-y-4">
       <div className="text-center">
         <div className="inline-flex items-center gap-2 rounded-md border bg-background px-3 py-2">
-          <UpkeepMark className="h-5" />
+          <UpkeepMark className="size-5" />
           <span className="text-sm font-medium">upKEEP engine</span>
         </div>
       </div>
@@ -895,7 +895,7 @@ function LandingFooter() {
     <footer className="border-t">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:flex-row sm:items-center sm:px-6">
         <div className="flex items-center gap-2">
-          <UpkeepMark className="h-5" />
+          <UpkeepMark className="size-5" />
           <span className="text-sm font-medium">upKEEP</span>
           <span className="text-sm text-muted-foreground">
             Persistent financial conditions for Arc.

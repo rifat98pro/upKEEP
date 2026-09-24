@@ -28,7 +28,8 @@
     "icons": "node scripts/generate-icons.mjs",
     "arc:test": "wsl -d Ubuntu -e bash -lc \"cd \\\"$(wslpath -a .)/contracts\\\" && ~/.local/bin/arc-forge test\"",
     "deploy:mainnet": "node scripts/deploy-mainnet.mjs",
-    "schedule:register": "node scripts/register-schedule.mjs"
+    "schedule:register": "node scripts/register-schedule.mjs",
+    "logo:cutout": "node scripts/logo-transparent.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

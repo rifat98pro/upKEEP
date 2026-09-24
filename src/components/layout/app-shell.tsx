@@ -50,7 +50,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[15rem_1fr]">
       {/* Desktop sidebar */}
-      <aside className="sticky top-0 hidden h-screen flex-col border-r bg-card lg:flex">
+      {/*
+        The sidebar sits on the page colour rather than the card colour.
+        The logo ships with its own navy baked in, so any surface behind it that
+        differs leaves a visible tile around the mark. --background is sampled
+        from the artwork's corners; --card is four points lighter and framed it.
+      */}
+      <aside className="sticky top-0 hidden h-screen flex-col border-r bg-background lg:flex">
         <SidebarContent pathname={pathname} />
       </aside>
 
@@ -62,14 +68,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             onClick={() => setMobileOpen(false)}
             aria-label="Close navigation"
           />
-          <aside className="absolute inset-y-0 left-0 flex w-64 animate-in slide-in-from-left flex-col border-r bg-card">
+          <aside className="absolute inset-y-0 left-0 flex w-64 animate-in slide-in-from-left flex-col border-r bg-background">
             <SidebarContent pathname={pathname} onClose={() => setMobileOpen(false)} />
           </aside>
         </div>
       ) : null}
 
       <div className="flex min-h-screen flex-col">
-        <header className="sticky top-0 z-40 flex h-14 items-center gap-3 border-b bg-background/85 px-4 backdrop-blur-md sm:px-6">
+        <header className="sticky top-0 z-40 flex h-14 items-center gap-3 border-b bg-background px-4 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -81,7 +87,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </Button>
 
           <Link href="/dashboard" className="flex items-center gap-2 lg:hidden">
-            <UpkeepMark className="h-6" />
+            <UpkeepMark className="size-6" />
             <span className="font-semibold tracking-tight">upKEEP</span>
           </Link>
 
@@ -145,7 +151,7 @@ function SidebarContent({ pathname, onClose }: { pathname: string; onClose?: () 
     <>
       <div className="flex h-14 items-center gap-2 border-b px-4">
         <Link href="/" className="flex items-center gap-2">
-          <UpkeepMark className="h-6" />
+          <UpkeepMark className="size-6" />
           <span className="font-semibold tracking-tight">upKEEP</span>
         </Link>
         {onClose ? (
