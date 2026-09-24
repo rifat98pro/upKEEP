@@ -1,14 +1,20 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import logoSymbol from '../../../assets/logo-symbol.png';
+import logoSymbol from '../../../assets/logo-symbol-transparent.png';
 
 /**
  * The upKEEP logo.
  *
- * This renders the artwork itself from assets/logo-symbol.png. It is not a
- * redraw, a trace or an approximation: no colours are substituted and no paths
- * are reconstructed. Change the file and every mark in the product changes with
- * it.
+ * This renders the artwork itself from assets/logo-symbol-transparent.png. It
+ * is not a redraw, a trace or an approximation: no colours are substituted and
+ * no paths are reconstructed. Change the file and every mark in the product
+ * changes with it.
+ *
+ * The transparent file is generated from assets/logo-symbol.png by
+ * `npm run logo:transparent`, which removes only the black backdrop the artwork
+ * was exported on - every coloured pixel keeps its exact value, and the glow
+ * keeps its falloff. The original is left in place as the master; regenerate
+ * rather than editing the transparent copy by hand.
  *
  * Sizing is height-based (`h-5`, `h-6`) rather than `size-*`, because the
  * artwork is 799x692 and forcing it into a square box would squash it. Width
